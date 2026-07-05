@@ -100,185 +100,165 @@ function SparklesIcon({ className }: { className?: string }) {
   );
 }
 
-const activities = [
-  {
-    title: "Basketball",
-    description:
-      "I play basketball every chance I get — practicing dribbling, shooting, and teamwork with my friends.",
-    icon: BasketballIcon,
-  },
-  {
-    title: "Poem Recitation",
-    description:
-      "I enjoy memorizing and reciting poems in front of classmates. It helps me speak clearly and confidently.",
-    icon: MicIcon,
-  },
-  {
-    title: "Reading Club",
-    description:
-      "I love reading adventure stories and sharing my favorite books with friends during our school reading club.",
-    icon: BookOpenIcon,
-  },
-  {
-    title: "Sports Day",
-    description:
-      "I look forward to Sports Day every year, where I compete in races and cheer for my house team.",
-    icon: TrophyIcon,
-  },
-];
+function QuoteIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M10 11H5.5v-.5C5.5 7.46 7.46 5.5 10 5.5V8c-1.38 0-2.5 1.12-2.5 2.5h2.5v5H7a2 2 0 0 1-2-2v-2.5c0-2.76 2.24-5 5-5v2.5C7.46 8.5 5.5 10.46 5.5 13v-2Z" />
+      <path d="M18.5 11H14v-.5c0-3.04 1.96-5 4.5-5V8c-1.38 0-2.5 1.12-2.5 2.5H18.5v5H15a2 2 0 0 1-2-2v-2.5c0-2.76 2.24-5 5-5v2.5c-2.76 0-4.5 1.96-4.5 4.5v-2Z" />
+    </svg>
+  );
+}
+
+function BentoCard({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`relative overflow-hidden rounded-3xl p-6 sm:p-8 bento-shadow transition-transform duration-300 hover:-translate-y-1 ${className}`}
+    >
+      {children}
+    </div>
+  );
+}
 
 function Index() {
   return (
-    <main className="min-h-screen bg-background">
-      {/* Hero */}
-      <section className="relative overflow-hidden px-6 py-20 sm:py-28 lg:px-8">
-        <div className="mx-auto max-w-5xl">
-          <div className="flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
-            <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
-                <SparklesIcon className="h-4 w-4" />
-                <span>Grade 6 Student</span>
-              </div>
-              <h1 className="mt-6 text-5xl font-extrabold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-                Zaid Abdul{" "}
-                <span className="text-primary">Lateef</span>
-              </h1>
-              <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground">
-                A curious, energetic student who loves basketball, expressive
-                poetry, and trying new things at school.
-              </p>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                <a
-                  href="#about"
-                  className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-transform hover:scale-105 active:scale-95"
-                >
-                  Read my bio
-                </a>
-                <a
-                  href="#activities"
-                  className="inline-flex items-center justify-center rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-card-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-                >
-                  See my activities
-                </a>
-              </div>
-            </div>
-
-            <div className="relative hidden md:block">
-              <div className="flex h-64 w-64 items-center justify-center rounded-full bg-primary/10 shadow-2xl shadow-primary/10 ring-8 ring-primary/5 lg:h-80 lg:w-80">
-                <BasketballIcon className="h-32 w-32 text-primary lg:h-40 lg:w-40" />
-              </div>
-              <div className="absolute -right-4 -top-4 rounded-2xl bg-card p-4 shadow-xl ring-1 ring-border">
-                <span className="text-2xl font-black text-primary">6</span>
-                <p className="text-xs font-semibold text-muted-foreground">Grade</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Bio */}
-      <section id="about" className="px-6 py-16 sm:py-24 lg:px-8">
-        <div className="mx-auto max-w-5xl">
-          <div className="rounded-3xl bg-card p-8 shadow-xl ring-1 ring-border sm:p-12">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              About Me
-            </h2>
-            <div className="mt-6 grid gap-8 md:grid-cols-3">
-              <p className="text-pretty leading-relaxed text-muted-foreground md:col-span-2">
-                My name is Zaid Abdul Lateef and I am a Grade 6 student. I am
-                curious about the world around me and I try my best in every
-                subject. School is exciting because there is always something
-                new to learn, whether it is solving a math problem, reading a
-                great story, or presenting in front of my class.
-              </p>
-              <div className="rounded-2xl bg-secondary p-6">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-secondary-foreground">
-                  Quick Facts
-                </h3>
-                <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                  <li className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-primary" />
-                    Favorite sport: Basketball
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-primary" />
-                    Favorite activity: Poem recitation
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-primary" />
-                    Dream: To play on a school basketball team
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-primary" />
-                    Best subject: English
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Activities */}
-      <section id="activities" className="px-6 py-16 sm:py-24 lg:px-8">
-        <div className="mx-auto max-w-5xl">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              School Activities
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-              Here are some of the things I enjoy doing inside and outside the
-              classroom.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {activities.map((activity) => (
-              <article
-                key={activity.title}
-                className="group rounded-2xl bg-card p-6 shadow-lg ring-1 ring-border transition-all hover:-translate-y-1 hover:shadow-xl hover:ring-primary/20"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                  <activity.icon className="h-6 w-6" />
+    <main className="min-h-screen bg-background px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+      <div className="mx-auto max-w-6xl">
+        {/* Bento grid */}
+        <div className="grid auto-rows-[minmax(180px,auto)] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          {/* Hero — spans full width */}
+          <BentoCard className="col-span-1 bg-primary text-primary-foreground sm:col-span-2 lg:col-span-4">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+              <div className="max-w-2xl">
+                <div className="inline-flex items-center gap-2 rounded-full bg-cream/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground">
+                  <SparklesIcon className="h-4 w-4" />
+                  Grade 6 Student
                 </div>
-                <h3 className="mt-5 text-lg font-bold text-foreground">
-                  {activity.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {activity.description}
+                <h1 className="mt-4 text-6xl leading-none sm:text-7xl lg:text-8xl">
+                  Zaid Abdul Lateef
+                </h1>
+                <p className="mt-4 max-w-xl text-base font-medium leading-relaxed opacity-90 sm:text-lg">
+                  A curious, energetic student who loves basketball, expressive
+                  poetry, and trying new things at school.
                 </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+              </div>
+              <div className="flex h-32 w-32 shrink-0 items-center justify-center self-start rounded-full bg-cream/20 ring-4 ring-cream/20 sm:h-40 sm:w-40 lg:self-center">
+                <BasketballIcon className="h-20 w-20 text-cream sm:h-24 sm:w-24" />
+              </div>
+            </div>
+          </BentoCard>
 
-      {/* Quote */}
-      <section className="px-6 py-16 sm:py-24 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
-          <blockquote className="rounded-3xl bg-court px-8 py-12 text-court-foreground shadow-2xl sm:px-16">
-            <p className="text-2xl font-semibold italic leading-relaxed sm:text-3xl">
-              “Hard work beats talent when talent doesn’t work hard.”
+          {/* Bio — large text card */}
+          <BentoCard className="col-span-1 bg-card text-card-foreground sm:col-span-2 lg:col-span-2 lg:row-span-2">
+            <h2 className="text-4xl text-foreground sm:text-5xl">About Me</h2>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
+              My name is Zaid Abdul Lateef and I am a Grade 6 student. I am
+              curious about the world around me and I try my best in every
+              subject.
             </p>
-            <footer className="mt-6 text-sm font-semibold opacity-80">
-              — A motto I remember before every game and every recital
-            </footer>
-          </blockquote>
-        </div>
-      </section>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+              School is exciting because there is always something new to learn,
+              whether it is solving a math problem, reading a great story, or
+              presenting in front of my class.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {["Basketball", "Poems", "Reading", "Sports Day"].map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full bg-sunset/10 px-3 py-1 text-sm font-semibold text-sunset"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </BentoCard>
 
-      {/* Footer */}
-      <footer className="border-t border-border px-6 py-10 lg:px-8">
-        <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 sm:flex-row">
+          {/* Basketball card */}
+          <BentoCard className="col-span-1 bg-coral text-coral-foreground">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-coral-foreground/15">
+              <BasketballIcon className="h-7 w-7" />
+            </div>
+            <h3 className="mt-5 text-3xl">Basketball</h3>
+            <p className="mt-2 text-sm font-medium leading-relaxed opacity-90">
+              I play every chance I get — practicing dribbling, shooting, and
+              teamwork with my friends.
+            </p>
+          </BentoCard>
+
+          {/* Poem recitation card */}
+          <BentoCard className="col-span-1 bg-berry text-berry-foreground">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-berry-foreground/20">
+              <MicIcon className="h-7 w-7" />
+            </div>
+            <h3 className="mt-5 text-3xl">Poem Recitation</h3>
+            <p className="mt-2 text-sm font-medium leading-relaxed opacity-90">
+              I enjoy memorizing and reciting poems in front of classmates. It
+              helps me speak clearly and confidently.
+            </p>
+          </BentoCard>
+
+          {/* Reading club card */}
+          <BentoCard className="col-span-1 bg-violet text-violet-foreground">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-foreground/20">
+              <BookOpenIcon className="h-7 w-7" />
+            </div>
+            <h3 className="mt-5 text-3xl">Reading Club</h3>
+            <p className="mt-2 text-sm font-medium leading-relaxed opacity-90">
+              I love reading adventure stories and sharing my favorite books
+              with friends.
+            </p>
+          </BentoCard>
+
+          {/* Sports day card */}
+          <BentoCard className="col-span-1 bg-sunset text-sunset-foreground">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sunset-foreground/15">
+              <TrophyIcon className="h-7 w-7" />
+            </div>
+            <h3 className="mt-5 text-3xl">Sports Day</h3>
+            <p className="mt-2 text-sm font-medium leading-relaxed opacity-90">
+              I compete in races and cheer for my house team every year.
+            </p>
+          </BentoCard>
+
+          {/* Quote banner */}
+          <BentoCard className="col-span-1 bg-foreground text-background sm:col-span-2 lg:col-span-4">
+            <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
+              <QuoteIcon className="h-10 w-10 shrink-0 text-coral" />
+              <div>
+                <p className="text-2xl font-semibold italic leading-snug sm:text-3xl">
+                  “Hard work beats talent when talent doesn’t work hard.”
+                </p>
+                <p className="mt-2 text-sm font-semibold opacity-70">
+                  A motto I remember before every game and every recital
+                </p>
+              </div>
+            </div>
+          </BentoCard>
+        </div>
+
+        {/* Footer */}
+        <footer className="mt-10 flex flex-col items-center justify-between gap-3 rounded-3xl bg-muted px-6 py-5 sm:flex-row">
           <div className="flex items-center gap-2">
-            <BasketballIcon className="h-5 w-5 text-primary" />
-            <span className="font-bold text-foreground">Zaid Abdul Lateef</span>
+            <BasketballIcon className="h-5 w-5 text-sunset" />
+            <span className="font-display text-lg tracking-wide text-foreground">
+              Zaid Abdul Lateef
+            </span>
           </div>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm font-medium text-muted-foreground">
             Grade 6 · Basketball fan · Poem reciter
           </p>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </main>
   );
 }
