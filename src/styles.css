@@ -2,11 +2,18 @@
 @source "../src";
 @import "tw-animate-css";
 
+@import "@fontsource/bebas-neue";
+@import "@fontsource/barlow/400.css";
+@import "@fontsource/barlow/500.css";
+@import "@fontsource/barlow/600.css";
+@import "@fontsource/barlow/700.css";
+
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Design system: energetic, sporty, basketball-court inspired palette
- * built around one bold orange accent without hardcoding utilities.
+ * Design system: Sunset Blaze — bold orange, coral, pink, and purple
+ * on a warm cream background. Big Bebas Neue display type with
+ * clean Barlow body text.
  */
 
 @theme inline {
@@ -17,6 +24,10 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
+  --font-display: "Bebas Neue", sans-serif;
+  --font-body: "Barlow", sans-serif;
+  --font-sans: "Barlow", sans-serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -39,10 +50,15 @@
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
 
-  --color-court: var(--court);
-  --color-court-foreground: var(--court-foreground);
-  --color-ball: var(--ball);
-  --color-ball-foreground: var(--ball-foreground);
+  --color-sunset: var(--sunset);
+  --color-sunset-foreground: var(--sunset-foreground);
+  --color-coral: var(--coral);
+  --color-coral-foreground: var(--coral-foreground);
+  --color-berry: var(--berry);
+  --color-berry-foreground: var(--berry-foreground);
+  --color-violet: var(--violet);
+  --color-violet-foreground: var(--violet-foreground);
+  --color-cream: var(--cream);
 
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
@@ -52,87 +68,97 @@
 }
 
 :root {
-  --radius: 0.875rem;
+  --radius: 1.25rem;
 
-  --background: oklch(0.975 0.01 80);
-  --foreground: oklch(0.22 0.04 260);
+  --background: oklch(0.98 0.02 60);
+  --foreground: oklch(0.20 0.07 300);
 
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.04 260);
+  --card-foreground: oklch(0.20 0.07 300);
 
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.04 260);
+  --popover-foreground: oklch(0.20 0.07 300);
 
-  --primary: oklch(0.7 0.24 55);
+  --primary: oklch(0.67 0.22 45);
   --primary-foreground: oklch(0.18 0.04 260);
 
-  --secondary: oklch(0.94 0.02 80);
-  --secondary-foreground: oklch(0.22 0.04 260);
+  --secondary: oklch(0.96 0.03 60);
+  --secondary-foreground: oklch(0.20 0.07 300);
 
-  --muted: oklch(0.92 0.01 80);
-  --muted-foreground: oklch(0.52 0.03 260);
+  --muted: oklch(0.93 0.02 60);
+  --muted-foreground: oklch(0.45 0.05 280);
 
-  --accent: oklch(0.2 0.05 260);
-  --accent-foreground: oklch(0.98 0.01 60);
+  --accent: oklch(0.60 0.24 350);
+  --accent-foreground: oklch(1 0 0);
 
   --destructive: oklch(0.55 0.22 25);
-  --destructive-foreground: oklch(0.98 0.01 60);
+  --destructive-foreground: oklch(1 0 0);
 
-  --border: oklch(0.86 0.02 80);
-  --input: oklch(0.86 0.02 80);
-  --ring: oklch(0.7 0.24 55);
+  --border: oklch(0.20 0.07 300 / 10%);
+  --input: oklch(0.20 0.07 300 / 12%);
+  --ring: oklch(0.67 0.22 45);
 
-  --court: oklch(0.2 0.05 260);
-  --court-foreground: oklch(0.98 0.01 60);
-  --ball: oklch(0.7 0.24 55);
-  --ball-foreground: oklch(0.18 0.04 260);
+  --sunset: oklch(0.67 0.22 45);
+  --sunset-foreground: oklch(0.18 0.04 260);
+  --coral: oklch(0.75 0.18 55);
+  --coral-foreground: oklch(0.18 0.04 260);
+  --berry: oklch(0.60 0.24 350);
+  --berry-foreground: oklch(1 0 0);
+  --violet: oklch(0.54 0.25 270);
+  --violet-foreground: oklch(1 0 0);
+  --cream: oklch(0.98 0.02 60);
 
-  --chart-1: oklch(0.7 0.24 55);
-  --chart-2: oklch(0.55 0.15 250);
-  --chart-3: oklch(0.75 0.22 55);
-  --chart-4: oklch(0.82 0.16 80);
-  --chart-5: oklch(0.72 0.2 150);
+  --chart-1: oklch(0.67 0.22 45);
+  --chart-2: oklch(0.75 0.18 55);
+  --chart-3: oklch(0.60 0.24 350);
+  --chart-4: oklch(0.54 0.25 270);
+  --chart-5: oklch(0.55 0.20 25);
 }
 
 .dark {
-  --background: oklch(0.18 0.04 260);
-  --foreground: oklch(0.95 0.01 80);
+  --background: oklch(0.18 0.09 310);
+  --foreground: oklch(0.97 0.02 60);
 
-  --card: oklch(0.22 0.04 260);
-  --card-foreground: oklch(0.95 0.01 80);
+  --card: oklch(0.23 0.10 305);
+  --card-foreground: oklch(0.97 0.02 60);
 
-  --popover: oklch(0.22 0.04 260);
-  --popover-foreground: oklch(0.95 0.01 80);
+  --popover: oklch(0.23 0.10 305);
+  --popover-foreground: oklch(0.97 0.02 60);
 
-  --primary: oklch(0.75 0.22 55);
+  --primary: oklch(0.72 0.20 45);
   --primary-foreground: oklch(0.12 0.04 260);
 
-  --secondary: oklch(0.28 0.04 260);
-  --secondary-foreground: oklch(0.95 0.01 80);
+  --secondary: oklch(0.28 0.08 300);
+  --secondary-foreground: oklch(0.97 0.02 60);
 
-  --muted: oklch(0.28 0.04 260);
-  --muted-foreground: oklch(0.68 0.03 260);
+  --muted: oklch(0.28 0.08 300);
+  --muted-foreground: oklch(0.70 0.05 280);
 
-  --accent: oklch(0.95 0.01 80);
-  --accent-foreground: oklch(0.15 0.04 260);
+  --accent: oklch(0.65 0.22 350);
+  --accent-foreground: oklch(1 0 0);
 
   --destructive: oklch(0.63 0.22 25);
-  --destructive-foreground: oklch(0.98 0.01 60);
+  --destructive-foreground: oklch(1 0 0);
 
-  --border: oklch(0.3 0.04 260);
-  --input: oklch(0.3 0.04 260);
-  --ring: oklch(0.75 0.22 55);
+  --border: oklch(0.97 0.02 60 / 12%);
+  --input: oklch(0.97 0.02 60 / 15%);
+  --ring: oklch(0.72 0.20 45);
 
-  --court: oklch(0.95 0.01 80);
-  --court-foreground: oklch(0.12 0.04 260);
-  --ball: oklch(0.75 0.22 55);
-  --ball-foreground: oklch(0.12 0.04 260);
+  --sunset: oklch(0.72 0.20 45);
+  --sunset-foreground: oklch(0.12 0.04 260);
+  --coral: oklch(0.78 0.16 55);
+  --coral-foreground: oklch(0.12 0.04 260);
+  --berry: oklch(0.65 0.22 350);
+  --berry-foreground: oklch(1 0 0);
+  --violet: oklch(0.59 0.23 270);
+  --violet-foreground: oklch(1 0 0);
+  --cream: oklch(0.98 0.02 60);
 
-  --chart-1: oklch(0.75 0.22 55);
-  --chart-2: oklch(0.65 0.15 250);
-  --chart-3: oklch(0.7 0.2 55);
-  --chart-4: oklch(0.82 0.16 80);
-  --chart-5: oklch(0.72 0.2 150);
+  --chart-1: oklch(0.72 0.20 45);
+  --chart-2: oklch(0.78 0.16 55);
+  --chart-3: oklch(0.65 0.22 350);
+  --chart-4: oklch(0.59 0.23 270);
+  --chart-5: oklch(0.63 0.22 25);
 }
 
 @layer base {
@@ -143,5 +169,15 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-body);
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: 0.02em;
+  }
+}
+
+@utility bento-shadow {
+  box-shadow: 0 20px 40px -16px oklch(0.2 0.05 300 / 18%);
 }
