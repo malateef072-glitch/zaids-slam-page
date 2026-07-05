@@ -80,16 +80,16 @@
 
   --border: oklch(0.86 0.02 80);
   --input: oklch(0.86 0.02 80);
-  --ring: oklch(0.62 0.18 45);
+  --ring: oklch(0.7 0.24 55);
 
   --court: oklch(0.2 0.05 260);
   --court-foreground: oklch(0.98 0.01 60);
-  --ball: oklch(0.62 0.18 45);
-  --ball-foreground: oklch(0.98 0.01 60);
+  --ball: oklch(0.7 0.24 55);
+  --ball-foreground: oklch(0.18 0.04 260);
 
-  --chart-1: oklch(0.62 0.18 45);
+  --chart-1: oklch(0.7 0.24 55);
   --chart-2: oklch(0.55 0.15 250);
-  --chart-3: oklch(0.4 0.08 260);
+  --chart-3: oklch(0.75 0.22 55);
   --chart-4: oklch(0.82 0.16 80);
   --chart-5: oklch(0.72 0.2 150);
 }
