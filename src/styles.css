@@ -63,8 +63,8 @@ import "tailwindcss" source(none);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.22 0.04 260);
 
-  --primary: oklch(0.62 0.18 45);
-  --primary-foreground: oklch(0.98 0.01 60);
+  --primary: oklch(0.7 0.24 55);
+  --primary-foreground: oklch(0.18 0.04 260);
 
   --secondary: oklch(0.94 0.02 80);
   --secondary-foreground: oklch(0.22 0.04 260);
@@ -104,8 +104,8 @@ import "tailwindcss" source(none);
   --popover: oklch(0.22 0.04 260);
   --popover-foreground: oklch(0.95 0.01 80);
 
-  --primary: oklch(0.7 0.18 45);
-  --primary-foreground: oklch(0.15 0.04 260);
+  --primary: oklch(0.75 0.22 55);
+  --primary-foreground: oklch(0.12 0.04 260);
 
   --secondary: oklch(0.28 0.04 260);
   --secondary-foreground: oklch(0.95 0.01 80);
