@@ -10,12 +10,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/*
- * Design system: Sunset Blaze — bold orange, coral, pink, and purple
- * on a warm cream background. Big Bebas Neue display type with
- * clean Barlow body text.
- */
-
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -50,115 +44,60 @@
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
 
-  --color-sunset: var(--sunset);
-  --color-sunset-foreground: var(--sunset-foreground);
-  --color-coral: var(--coral);
-  --color-coral-foreground: var(--coral-foreground);
-  --color-berry: var(--berry);
-  --color-berry-foreground: var(--berry-foreground);
-  --color-violet: var(--violet);
-  --color-violet-foreground: var(--violet-foreground);
-  --color-cream: var(--cream);
-
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
+  --color-ember: var(--ember);
+  --color-ember-foreground: var(--ember-foreground);
+  --color-flame: var(--flame);
+  --color-flame-foreground: var(--flame-foreground);
+  --color-court: var(--court);
+  --color-court-foreground: var(--court-foreground);
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-foreground: var(--charcoal-foreground);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
 }
 
 :root {
   --radius: 1.25rem;
 
-  --background: oklch(0.98 0.02 60);
-  --foreground: oklch(0.20 0.07 300);
+  /* Dark orange, high-energy court theme */
+  --background: oklch(0.16 0.03 40);
+  --foreground: oklch(0.97 0.02 70);
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.20 0.07 300);
+  --card: oklch(0.22 0.04 40);
+  --card-foreground: oklch(0.97 0.02 70);
 
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.20 0.07 300);
+  --popover: oklch(0.22 0.04 40);
+  --popover-foreground: oklch(0.97 0.02 70);
 
-  --primary: oklch(0.67 0.22 45);
-  --primary-foreground: oklch(0.18 0.04 260);
+  --primary: oklch(0.60 0.20 45);
+  --primary-foreground: oklch(0.14 0.03 40);
 
-  --secondary: oklch(0.96 0.03 60);
-  --secondary-foreground: oklch(0.20 0.07 300);
+  --secondary: oklch(0.28 0.05 40);
+  --secondary-foreground: oklch(0.97 0.02 70);
 
-  --muted: oklch(0.93 0.02 60);
-  --muted-foreground: oklch(0.45 0.05 280);
+  --muted: oklch(0.24 0.03 40);
+  --muted-foreground: oklch(0.72 0.04 60);
 
-  --accent: oklch(0.60 0.24 350);
-  --accent-foreground: oklch(1 0 0);
+  --accent: oklch(0.72 0.20 55);
+  --accent-foreground: oklch(0.14 0.03 40);
 
   --destructive: oklch(0.55 0.22 25);
   --destructive-foreground: oklch(1 0 0);
 
-  --border: oklch(0.20 0.07 300 / 10%);
-  --input: oklch(0.20 0.07 300 / 12%);
-  --ring: oklch(0.67 0.22 45);
+  --border: oklch(0.97 0.02 70 / 10%);
+  --input: oklch(0.97 0.02 70 / 12%);
+  --ring: oklch(0.60 0.20 45);
 
-  --sunset: oklch(0.67 0.22 45);
-  --sunset-foreground: oklch(0.18 0.04 260);
-  --coral: oklch(0.75 0.18 55);
-  --coral-foreground: oklch(0.18 0.04 260);
-  --berry: oklch(0.60 0.24 350);
-  --berry-foreground: oklch(1 0 0);
-  --violet: oklch(0.54 0.25 270);
-  --violet-foreground: oklch(1 0 0);
-  --cream: oklch(0.98 0.02 60);
-
-  --chart-1: oklch(0.67 0.22 45);
-  --chart-2: oklch(0.75 0.18 55);
-  --chart-3: oklch(0.60 0.24 350);
-  --chart-4: oklch(0.54 0.25 270);
-  --chart-5: oklch(0.55 0.20 25);
-}
-
-.dark {
-  --background: oklch(0.18 0.09 310);
-  --foreground: oklch(0.97 0.02 60);
-
-  --card: oklch(0.23 0.10 305);
-  --card-foreground: oklch(0.97 0.02 60);
-
-  --popover: oklch(0.23 0.10 305);
-  --popover-foreground: oklch(0.97 0.02 60);
-
-  --primary: oklch(0.72 0.20 45);
-  --primary-foreground: oklch(0.12 0.04 260);
-
-  --secondary: oklch(0.28 0.08 300);
-  --secondary-foreground: oklch(0.97 0.02 60);
-
-  --muted: oklch(0.28 0.08 300);
-  --muted-foreground: oklch(0.70 0.05 280);
-
-  --accent: oklch(0.65 0.22 350);
-  --accent-foreground: oklch(1 0 0);
-
-  --destructive: oklch(0.63 0.22 25);
-  --destructive-foreground: oklch(1 0 0);
-
-  --border: oklch(0.97 0.02 60 / 12%);
-  --input: oklch(0.97 0.02 60 / 15%);
-  --ring: oklch(0.72 0.20 45);
-
-  --sunset: oklch(0.72 0.20 45);
-  --sunset-foreground: oklch(0.12 0.04 260);
-  --coral: oklch(0.78 0.16 55);
-  --coral-foreground: oklch(0.12 0.04 260);
-  --berry: oklch(0.65 0.22 350);
-  --berry-foreground: oklch(1 0 0);
-  --violet: oklch(0.59 0.23 270);
-  --violet-foreground: oklch(1 0 0);
-  --cream: oklch(0.98 0.02 60);
-
-  --chart-1: oklch(0.72 0.20 45);
-  --chart-2: oklch(0.78 0.16 55);
-  --chart-3: oklch(0.65 0.22 350);
-  --chart-4: oklch(0.59 0.23 270);
-  --chart-5: oklch(0.63 0.22 25);
+  --ember: oklch(0.55 0.22 40);
+  --ember-foreground: oklch(1 0 0);
+  --flame: oklch(0.70 0.20 55);
+  --flame-foreground: oklch(0.14 0.03 40);
+  --court: oklch(0.45 0.18 35);
+  --court-foreground: oklch(1 0 0);
+  --charcoal: oklch(0.12 0.02 40);
+  --charcoal-foreground: oklch(0.97 0.02 70);
+  --gold: oklch(0.80 0.16 85);
+  --gold-foreground: oklch(0.14 0.03 40);
 }
 
 @layer base {
@@ -170,6 +109,11 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-body);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 20% 0%, oklch(0.55 0.22 40 / 25%), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 90% 20%, oklch(0.70 0.20 55 / 18%), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 50% 100%, oklch(0.45 0.18 35 / 20%), transparent 60%);
+    background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -179,5 +123,18 @@
 }
 
 @utility bento-shadow {
-  box-shadow: 0 20px 40px -16px oklch(0.2 0.05 300 / 18%);
+  box-shadow:
+    0 20px 40px -16px oklch(0.05 0.02 40 / 60%),
+    0 0 0 1px oklch(0.97 0.02 70 / 8%) inset;
+}
+
+@utility glow-ember {
+  box-shadow:
+    0 0 60px -10px oklch(0.60 0.20 45 / 60%),
+    0 20px 40px -16px oklch(0.05 0.02 40 / 60%);
+}
+
+@utility text-stroke-flame {
+  -webkit-text-stroke: 2px oklch(0.70 0.20 55);
+  color: transparent;
 }
