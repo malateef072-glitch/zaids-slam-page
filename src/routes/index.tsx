@@ -6,7 +6,7 @@ export const Route = createFileRoute("/")({
       { title: "Hoops Handbook — Basketball Rules & How to Play" },
       { name: "description", content: "Learn the core rules of basketball and how to play the game — a dark-orange, high-energy handbook." },
       { property: "og:title", content: "Hoops Handbook — Basketball Rules & How to Play" },
-      { property: "og:description", content: "Learn the core rules of basketball and how to play the game." },
+      { property: "og:description", content: "Learn the core rules of basketball and how to play the game — a dark-orange, high-energy handbook." },
     ],
   }),
   component: RulesPage,
