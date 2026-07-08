@@ -120,7 +120,7 @@ function Index() {
                 </div>
               </div>
               <div className="relative flex h-40 w-40 shrink-0 items-center justify-center self-start rounded-full bg-primary-foreground/15 ring-4 ring-primary-foreground/20 sm:h-56 sm:w-56 lg:self-center">
-                <BasketballIcon className="h-28 w-28 sm:h-40 sm:w-40 animate-spin" style={{ animationDuration: "8s" }} />
+                <BasketballIcon className="h-28 w-28 sm:h-40 sm:w-40 [animation:spin_8s_linear_infinite]" />
               </div>
             </div>
           </BentoCard>
