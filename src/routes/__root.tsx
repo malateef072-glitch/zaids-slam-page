@@ -77,14 +77,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Zaid Abdul Lateef — Grade 6" },
-      { name: "description", content: "Personal landing page of Zaid Abdul Lateef, a Grade 6 student who loves basketball, poem recitation, and school activities." },
-      { name: "author", content: "Zaid Abdul Lateef" },
-      { property: "og:title", content: "Zaid Abdul Lateef — Grade 6" },
-      { property: "og:description", content: "Personal landing page of Zaid Abdul Lateef, a Grade 6 student who loves basketball, poem recitation, and school activities." },
+      { title: "Hoops Handbook — Basketball Rules & Legends" },
+      { name: "description", content: "A fun, high-energy guide to basketball's core rules and the legends who defined the game." },
+      { property: "og:title", content: "Hoops Handbook — Basketball Rules & Legends" },
+      { property: "og:description", content: "A fun, high-energy guide to basketball's core rules and the legends who defined the game." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@zaidlatif" },
     ],
     links: [
       {
