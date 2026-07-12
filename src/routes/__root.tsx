@@ -121,14 +121,14 @@ function SiteNav() {
     "inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] transition-colors";
   return (
     <nav className="sticky top-0 z-50 border-b border-flame/15 bg-onyx/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-2 text-foreground">
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-flame text-flame-foreground font-display text-lg">
             H
           </span>
           <span className="font-display text-2xl tracking-wider">Hoops Handbook</span>
         </Link>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <Link
             to="/"
             className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`}
