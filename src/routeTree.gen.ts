@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as LegendsRouteImport } from './routes/legends'
+import { Route as FitnessRouteImport } from './routes/fitness'
 import { Route as CoachingRouteImport } from './routes/coaching'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -22,6 +23,11 @@ const ReviewsRoute = ReviewsRouteImport.update({
 const LegendsRoute = LegendsRouteImport.update({
   id: '/legends',
   path: '/legends',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FitnessRoute = FitnessRouteImport.update({
+  id: '/fitness',
+  path: '/fitness',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CoachingRoute = CoachingRouteImport.update({
@@ -38,12 +44,14 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/coaching': typeof CoachingRoute
+  '/fitness': typeof FitnessRoute
   '/legends': typeof LegendsRoute
   '/reviews': typeof ReviewsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/coaching': typeof CoachingRoute
+  '/fitness': typeof FitnessRoute
   '/legends': typeof LegendsRoute
   '/reviews': typeof ReviewsRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/coaching': typeof CoachingRoute
+  '/fitness': typeof FitnessRoute
   '/legends': typeof LegendsRoute
   '/reviews': typeof ReviewsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/coaching' | '/legends' | '/reviews'
+  fullPaths: '/' | '/coaching' | '/fitness' | '/legends' | '/reviews'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/coaching' | '/legends' | '/reviews'
-  id: '__root__' | '/' | '/coaching' | '/legends' | '/reviews'
+  to: '/' | '/coaching' | '/fitness' | '/legends' | '/reviews'
+  id: '__root__' | '/' | '/coaching' | '/fitness' | '/legends' | '/reviews'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CoachingRoute: typeof CoachingRoute
+  FitnessRoute: typeof FitnessRoute
   LegendsRoute: typeof LegendsRoute
   ReviewsRoute: typeof ReviewsRoute
 }
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/legends'
       fullPath: '/legends'
       preLoaderRoute: typeof LegendsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fitness': {
+      id: '/fitness'
+      path: '/fitness'
+      fullPath: '/fitness'
+      preLoaderRoute: typeof FitnessRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/coaching': {
@@ -105,6 +122,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CoachingRoute: CoachingRoute,
+  FitnessRoute: FitnessRoute,
   LegendsRoute: LegendsRoute,
   ReviewsRoute: ReviewsRoute,
 }

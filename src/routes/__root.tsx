@@ -144,6 +144,27 @@ function SiteNav() {
           >
             Legends
           </Link>
+          <Link
+            to="/coaching"
+            className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`}
+            activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}
+          >
+            Coaching
+          </Link>
+          <Link
+            to="/fitness"
+            className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`}
+            activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}
+          >
+            Fitness
+          </Link>
+          <Link
+            to="/reviews"
+            className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`}
+            activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}
+          >
+            Reviews
+          </Link>
         </div>
       </div>
     </nav>
