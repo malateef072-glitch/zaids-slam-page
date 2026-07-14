@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import fitnessJump from "@/assets/fitness-jump.jpg";
 
 export const Route = createFileRoute("/fitness")({
   head: () => ({
@@ -41,12 +42,23 @@ const nutrition = [
 export default function FitnessPage() {
   return (
     <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
-      <header className="mb-10 rounded-3xl border border-flame/20 bg-charcoal/60 p-8 bento-shadow">
-        <p className="text-xs font-bold uppercase tracking-[0.3em] text-flame">Fitness</p>
-        <h1 className="mt-2 font-display text-5xl text-foreground sm:text-6xl">Build a hooper's body</h1>
-        <p className="mt-3 max-w-2xl text-foreground/70">
-          Strength, speed, vertical, mobility, and recovery — a basketball-specific fitness plan you can run alongside your weekly classes.
-        </p>
+      <header className="relative mb-10 min-h-[340px] overflow-hidden rounded-3xl border border-flame/20 bento-shadow">
+        <img
+          src={fitnessJump}
+          alt="Athlete mid-air during a plyometric jump on a dark court"
+          width={1600}
+          height={900}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-onyx via-onyx/85 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-onyx/90 via-transparent to-transparent" />
+        <div className="relative p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-flame">Fitness</p>
+          <h1 className="mt-2 font-display text-5xl text-foreground sm:text-6xl">Build a hooper's body</h1>
+          <p className="mt-3 max-w-2xl text-foreground/80">
+            Strength, speed, vertical, mobility, and recovery — a basketball-specific fitness plan you can run alongside your weekly classes.
+          </p>
+        </div>
       </header>
 
       <section className="mb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
