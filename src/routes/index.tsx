@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import heroCourt from "@/assets/hero-court.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -100,32 +101,36 @@ function RulesPage() {
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <div className="grid auto-rows-[minmax(180px,auto)] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
         {/* HERO */}
-        <BentoCard className="col-span-1 sm:col-span-2 lg:col-span-4 bg-gradient-to-br from-ember via-primary to-court text-primary-foreground glow-ember">
-          <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border-[3px] border-primary-foreground/15" />
-          <div className="absolute -right-8 -top-8 h-48 w-48 rounded-full border-[3px] border-primary-foreground/10" />
-          <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+        <BentoCard className="col-span-1 sm:col-span-2 lg:col-span-4 min-h-[420px] text-primary-foreground glow-ember p-0">
+          <img
+            src={heroCourt}
+            alt="Basketball resting under a spotlit hoop on hardwood"
+            width={1920}
+            height={1080}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-onyx via-onyx/85 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-onyx/90 via-transparent to-transparent" />
+          <div className="relative flex h-full flex-col justify-end p-6 sm:p-10">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em]">
+              <div className="inline-flex items-center gap-2 rounded-full bg-flame/20 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-flame ring-1 ring-flame/40">
                 <FlameIcon className="h-4 w-4" /> Chapter One
               </div>
               <h1 className="mt-4 text-6xl leading-[0.9] sm:text-8xl lg:text-[9rem]">
                 THE RULES
                 <span className="block text-stroke-flame">OF THE GAME</span>
               </h1>
-              <p className="mt-4 max-w-xl text-base font-medium leading-relaxed opacity-90 sm:text-lg">
+              <p className="mt-4 max-w-xl text-base font-medium leading-relaxed text-foreground/85 sm:text-lg">
                 Everything you need to lace up, hit the hardwood, and play basketball the right way.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <a href="#how-to-play" className="inline-flex items-center gap-2 rounded-full bg-primary-foreground px-5 py-2.5 text-sm font-bold uppercase tracking-wider text-primary transition-transform hover:scale-105">
+                <a href="#how-to-play" className="inline-flex items-center gap-2 rounded-full bg-flame px-5 py-2.5 text-sm font-bold uppercase tracking-wider text-flame-foreground transition-transform hover:scale-105">
                   <WhistleIcon className="h-4 w-4" /> How to Play
                 </a>
-                <Link to="/legends" className="inline-flex items-center gap-2 rounded-full border-2 border-primary-foreground/40 px-5 py-2.5 text-sm font-bold uppercase tracking-wider transition-colors hover:bg-primary-foreground/10">
+                <Link to="/legends" className="inline-flex items-center gap-2 rounded-full border-2 border-flame/40 bg-onyx/60 px-5 py-2.5 text-sm font-bold uppercase tracking-wider text-foreground backdrop-blur transition-colors hover:bg-flame/15">
                   <TrophyIcon className="h-4 w-4" /> Meet the Legends →
                 </Link>
               </div>
-            </div>
-            <div className="relative flex h-40 w-40 shrink-0 items-center justify-center self-start rounded-full bg-primary-foreground/15 ring-4 ring-primary-foreground/20 sm:h-56 sm:w-56 lg:self-center">
-              <BasketballIcon className="h-28 w-28 sm:h-40 sm:w-40 [animation:spin_8s_linear_infinite]" />
             </div>
           </div>
         </BentoCard>

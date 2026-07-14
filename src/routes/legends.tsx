@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import legendsDunk from "@/assets/legends-dunk.jpg";
 
 export const Route = createFileRoute("/legends")({
   head: () => ({
@@ -63,28 +64,33 @@ function LegendsPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       {/* HERO */}
-      <BentoCard className="bg-gradient-to-br from-onyx via-charcoal to-ember text-primary-foreground glow-ember">
-        <div className="absolute -left-16 -bottom-16 h-64 w-64 rounded-full border-[3px] border-flame/20" />
-        <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+      <BentoCard className="min-h-[420px] text-primary-foreground glow-ember p-0">
+        <img
+          src={legendsDunk}
+          alt="Silhouette of a player finishing a dunk under red arena lights"
+          width={1600}
+          height={900}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-onyx via-onyx/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-onyx/90 via-transparent to-transparent" />
+        <div className="relative flex h-full flex-col justify-end p-6 sm:p-10">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full bg-flame/20 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-flame">
+            <div className="inline-flex items-center gap-2 rounded-full bg-flame/20 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-flame ring-1 ring-flame/40">
               <TrophyIcon className="h-4 w-4" /> Chapter Two
             </div>
             <h1 className="mt-4 text-6xl leading-[0.9] sm:text-8xl lg:text-[9rem] text-foreground">
               THE
               <span className="block text-stroke-flame">LEGENDS</span>
             </h1>
-            <p className="mt-4 max-w-xl text-base font-medium leading-relaxed text-foreground/80 sm:text-lg">
+            <p className="mt-4 max-w-xl text-base font-medium leading-relaxed text-foreground/85 sm:text-lg">
               Six players. Countless rings. Endless highlights. Meet the icons who made basketball what it is today.
             </p>
             <div className="mt-6">
-              <Link to="/" className="inline-flex items-center gap-2 rounded-full border-2 border-flame/50 px-5 py-2.5 text-sm font-bold uppercase tracking-wider text-flame transition-colors hover:bg-flame/10">
+              <Link to="/" className="inline-flex items-center gap-2 rounded-full border-2 border-flame/50 bg-onyx/60 px-5 py-2.5 text-sm font-bold uppercase tracking-wider text-flame backdrop-blur transition-colors hover:bg-flame/15">
                 <WhistleIcon className="h-4 w-4" /> ← Back to Rules
               </Link>
             </div>
-          </div>
-          <div className="relative flex h-40 w-40 shrink-0 items-center justify-center self-start rounded-full bg-flame/15 ring-4 ring-flame/25 sm:h-56 sm:w-56 lg:self-center">
-            <TrophyIcon className="h-24 w-24 text-flame sm:h-36 sm:w-36" />
           </div>
         </div>
       </BentoCard>

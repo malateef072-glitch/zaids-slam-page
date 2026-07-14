@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import coachingGym from "@/assets/coaching-gym.jpg";
 
 export const Route = createFileRoute("/coaching")({
   head: () => ({
@@ -51,12 +52,23 @@ const payments = ["Visa", "Mastercard", "Amex", "Apple Pay", "Google Pay", "PayP
 export default function CoachingPage() {
   return (
     <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
-      <header className="mb-10 rounded-3xl border border-flame/20 bg-charcoal/60 p-8 bento-shadow">
-        <p className="text-xs font-bold uppercase tracking-[0.3em] text-flame">Coaching</p>
-        <h1 className="mt-2 font-display text-5xl text-foreground sm:text-6xl">Train where the pros train</h1>
-        <p className="mt-3 max-w-2xl text-foreground/70">
-          Weekly classes for every level, coaches with pro pedigree, and a fitness track built for hoopers.
-        </p>
+      <header className="relative mb-10 min-h-[340px] overflow-hidden rounded-3xl border border-flame/20 bento-shadow">
+        <img
+          src={coachingGym}
+          alt="Players training in a warmly lit gym at sunset"
+          width={1600}
+          height={900}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-onyx via-onyx/85 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-onyx/90 via-transparent to-transparent" />
+        <div className="relative p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-flame">Coaching</p>
+          <h1 className="mt-2 font-display text-5xl text-foreground sm:text-6xl">Train where the pros train</h1>
+          <p className="mt-3 max-w-2xl text-foreground/80">
+            Weekly classes for every level, coaches with pro pedigree, and a fitness track built for hoopers.
+          </p>
+        </div>
       </header>
 
       <section className="mb-12">
