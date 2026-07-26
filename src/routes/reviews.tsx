@@ -104,10 +104,3 @@ function LeaveReview() {
   );
 }
 
-function _closer() {
-  return (
-    <main>
-      <section />
-    </main>
-  );
-}
