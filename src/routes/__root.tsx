@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { AuthProvider, useAuth } from "@/hooks/use-auth";
 
 function NotFoundComponent() {
   return (
@@ -117,6 +118,7 @@ function RootShell({ children }: { children: ReactNode }) {
 }
 
 function SiteNav() {
+  const { user, role, signOut } = useAuth();
   const linkBase =
     "inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] transition-colors";
   return (
@@ -129,42 +131,26 @@ function SiteNav() {
           <span className="font-display text-2xl tracking-wider">Hoops Handbook</span>
         </Link>
         <div className="flex flex-wrap items-center gap-2">
-          <Link
-            to="/"
-            className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`}
-            activeOptions={{ exact: true }}
-            activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}
-          >
-            Rules
-          </Link>
-          <Link
-            to="/legends"
-            className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`}
-            activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}
-          >
-            Legends
-          </Link>
-          <Link
-            to="/coaching"
-            className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`}
-            activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}
-          >
-            Coaching
-          </Link>
-          <Link
-            to="/fitness"
-            className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`}
-            activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}
-          >
-            Fitness
-          </Link>
-          <Link
-            to="/reviews"
-            className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`}
-            activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}
-          >
-            Reviews
-          </Link>
+          <Link to="/" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeOptions={{ exact: true }} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Rules</Link>
+          <Link to="/legends" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Legends</Link>
+          <Link to="/coaching" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Coaching</Link>
+          <Link to="/fitness" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Fitness</Link>
+          <Link to="/reviews" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Reviews</Link>
+          {role === "owner" && (
+            <Link to="/admin" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Admin</Link>
+          )}
+          {user ? (
+            <>
+              <span className="rounded-full bg-flame/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-flame">
+                {role ?? "…"}
+              </span>
+              <button onClick={signOut} className={`${linkBase} border border-flame/30 text-foreground/70 hover:bg-flame/10 hover:text-flame`}>
+                Sign out
+              </button>
+            </>
+          ) : (
+            <Link to="/auth" className={`${linkBase} bg-flame text-flame-foreground`}>Sign in</Link>
+          )}
         </div>
       </div>
     </nav>
@@ -176,14 +162,16 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <SiteNav />
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
-      <footer className="mt-8 border-t border-flame/10 bg-onyx/60 py-6 text-center">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/60">
-          Hoops Handbook · Rules · Legends · Respect the game
-        </p>
-      </footer>
+      <AuthProvider>
+        <SiteNav />
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+        <footer className="mt-8 border-t border-flame/10 bg-onyx/60 py-6 text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/60">
+            Hoops Handbook · Rules · Legends · Respect the game
+          </p>
+        </footer>
+      </AuthProvider>
     </QueryClientProvider>
   );
 }

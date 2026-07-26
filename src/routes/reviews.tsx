@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useAuth, can } from "@/hooks/use-auth";
 
 export const Route = createFileRoute("/reviews")({
   head: () => ({
@@ -56,17 +57,50 @@ export default function ReviewsPage() {
         ))}
       </section>
 
-      <section className="mt-10 rounded-2xl border border-flame/15 bg-onyx/60 p-6 bento-shadow">
-        <h2 className="font-display text-2xl text-flame">Leave a review</h2>
-        <form className="mt-4 grid gap-3 sm:grid-cols-2" onSubmit={(e) => { e.preventDefault(); alert("Thanks for your review!"); }}>
-          <input required placeholder="Your name" className="rounded-lg border border-flame/20 bg-charcoal/70 px-3 py-2 text-sm text-foreground placeholder:text-foreground/40" />
-          <input placeholder="Role (parent, player…)" className="rounded-lg border border-flame/20 bg-charcoal/70 px-3 py-2 text-sm text-foreground placeholder:text-foreground/40" />
-          <textarea required placeholder="Tell us how it went…" rows={4} className="sm:col-span-2 rounded-lg border border-flame/20 bg-charcoal/70 px-3 py-2 text-sm text-foreground placeholder:text-foreground/40" />
-          <button className="sm:col-span-2 rounded-full bg-flame px-4 py-2 text-sm font-bold uppercase tracking-[0.2em] text-flame-foreground">
-            Submit review
-          </button>
-        </form>
-      </section>
+      <LeaveReview />
     </main>
   );
 }
+
+function LeaveReview() {
+  const { user, role } = useAuth();
+  const allowed = can(role, "create");
+
+  if (!user) {
+    return (
+      <section className="mt-10 rounded-2xl border border-flame/15 bg-onyx/60 p-6 text-center bento-shadow">
+        <h2 className="font-display text-2xl text-flame">Leave a review</h2>
+        <p className="mt-2 text-foreground/70">Sign in to share your experience.</p>
+        <Link to="/auth" className="mt-4 inline-block rounded-full bg-flame px-4 py-2 text-sm font-bold uppercase tracking-[0.2em] text-flame-foreground">
+          Sign in
+        </Link>
+      </section>
+    );
+  }
+
+  if (!allowed) {
+    return (
+      <section className="mt-10 rounded-2xl border border-flame/15 bg-onyx/60 p-6 text-center bento-shadow">
+        <h2 className="font-display text-2xl text-flame">Members only</h2>
+        <p className="mt-2 text-foreground/70">
+          Your role is <span className="text-flame">{role}</span>. Ask an Owner to upgrade you to Member to post reviews.
+        </p>
+      </section>
+    );
+  }
+
+  return (
+    <section className="mt-10 rounded-2xl border border-flame/15 bg-onyx/60 p-6 bento-shadow">
+      <h2 className="font-display text-2xl text-flame">Leave a review</h2>
+      <form className="mt-4 grid gap-3 sm:grid-cols-2" onSubmit={(e) => { e.preventDefault(); alert("Thanks for your review!"); }}>
+        <input required placeholder="Your name" className="rounded-lg border border-flame/20 bg-charcoal/70 px-3 py-2 text-sm text-foreground placeholder:text-foreground/40" />
+        <input placeholder="Role (parent, player…)" className="rounded-lg border border-flame/20 bg-charcoal/70 px-3 py-2 text-sm text-foreground placeholder:text-foreground/40" />
+        <textarea required placeholder="Tell us how it went…" rows={4} className="sm:col-span-2 rounded-lg border border-flame/20 bg-charcoal/70 px-3 py-2 text-sm text-foreground placeholder:text-foreground/40" />
+        <button className="sm:col-span-2 rounded-full bg-flame px-4 py-2 text-sm font-bold uppercase tracking-[0.2em] text-flame-foreground">
+          Submit review
+        </button>
+      </form>
+    </section>
+  );
+}
+
