@@ -14,6 +14,86 @@ export type Database = {
   }
   public: {
     Tables: {
+      drills: {
+        Row: {
+          category: Database["public"]["Enums"]["drill_category"]
+          created_at: string
+          description: string
+          difficulty: Database["public"]["Enums"]["drill_difficulty"]
+          duration_seconds: number
+          id: string
+          slug: string
+          steps: Json
+          thumbnail_url: string
+          title: string
+          updated_at: string
+          video_url: string
+        }
+        Insert: {
+          category: Database["public"]["Enums"]["drill_category"]
+          created_at?: string
+          description?: string
+          difficulty: Database["public"]["Enums"]["drill_difficulty"]
+          duration_seconds?: number
+          id?: string
+          slug: string
+          steps?: Json
+          thumbnail_url: string
+          title: string
+          updated_at?: string
+          video_url: string
+        }
+        Update: {
+          category?: Database["public"]["Enums"]["drill_category"]
+          created_at?: string
+          description?: string
+          difficulty?: Database["public"]["Enums"]["drill_difficulty"]
+          duration_seconds?: number
+          id?: string
+          slug?: string
+          steps?: Json
+          thumbnail_url?: string
+          title?: string
+          updated_at?: string
+          video_url?: string
+        }
+        Relationships: []
+      }
+      user_progress: {
+        Row: {
+          completed_at: string
+          created_at: string
+          drill_id: string
+          id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string
+          created_at?: string
+          drill_id: string
+          id?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          completed_at?: string
+          created_at?: string
+          drill_id?: string
+          id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_progress_drill_id_fkey"
+            columns: ["drill_id"]
+            isOneToOne: false
+            referencedRelation: "drills"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_roles: {
         Row: {
           created_at: string
@@ -50,6 +130,14 @@ export type Database = {
     }
     Enums: {
       app_role: "owner" | "member" | "visitor"
+      drill_category:
+        | "Dribbling"
+        | "Shooting"
+        | "Passing"
+        | "Defense"
+        | "Footwork"
+        | "Conditioning"
+      drill_difficulty: "Beginner" | "Intermediate" | "Advanced"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -178,6 +266,15 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["owner", "member", "visitor"],
+      drill_category: [
+        "Dribbling",
+        "Shooting",
+        "Passing",
+        "Defense",
+        "Footwork",
+        "Conditioning",
+      ],
+      drill_difficulty: ["Beginner", "Intermediate", "Advanced"],
     },
   },
 } as const
