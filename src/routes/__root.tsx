@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { AuthProvider, useAuth } from "@/hooks/use-auth";
+import { ChatWidget } from "@/components/chat-widget";
 
 function NotFoundComponent() {
   return (
@@ -167,11 +168,13 @@ function RootComponent() {
         <SiteNav />
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
+        <ChatWidget />
         <footer className="mt-8 border-t border-flame/10 bg-onyx/60 py-6 text-center">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/60">
-            Hoops Handbook · Rules · Legends · Respect the game
+            Hoops Handbook · Rules · Coaching · Respect the game
           </p>
         </footer>
+
       </AuthProvider>
     </QueryClientProvider>
   );
