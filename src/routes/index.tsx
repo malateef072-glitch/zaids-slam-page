@@ -127,8 +127,8 @@ function RulesPage() {
                 <a href="#how-to-play" className="inline-flex items-center gap-2 rounded-full bg-flame px-5 py-2.5 text-sm font-bold uppercase tracking-wider text-flame-foreground transition-transform hover:scale-105">
                   <WhistleIcon className="h-4 w-4" /> How to Play
                 </a>
-                <Link to="/legends" className="inline-flex items-center gap-2 rounded-full border-2 border-flame/40 bg-onyx/60 px-5 py-2.5 text-sm font-bold uppercase tracking-wider text-foreground backdrop-blur transition-colors hover:bg-flame/15">
-                  <TrophyIcon className="h-4 w-4" /> Meet the Legends →
+                <Link to="/training" className="inline-flex items-center gap-2 rounded-full border-2 border-flame/40 bg-onyx/60 px-5 py-2.5 text-sm font-bold uppercase tracking-wider text-foreground backdrop-blur transition-colors hover:bg-flame/15">
+                  <TrophyIcon className="h-4 w-4" /> Start Training →
                 </Link>
               </div>
             </div>
@@ -207,16 +207,16 @@ function RulesPage() {
         </div>
       </section>
 
-      {/* CTA to legends */}
+      {/* CTA to training */}
       <BentoCard className="mt-10 bg-gradient-to-br from-charcoal via-onyx to-charcoal text-charcoal-foreground">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-flame">Next Chapter</p>
-            <h3 className="mt-2 text-4xl sm:text-5xl">Meet the Legends</h3>
-            <p className="mt-2 max-w-md text-sm font-medium opacity-80">The players who bent the rules and rewrote history.</p>
+            <h3 className="mt-2 text-4xl sm:text-5xl">Train Your Game</h3>
+            <p className="mt-2 max-w-md text-sm font-medium opacity-80">Guided drills, video tutorials, and progress tracking.</p>
           </div>
-          <Link to="/legends" className="inline-flex items-center gap-2 rounded-full bg-flame px-6 py-3 text-sm font-bold uppercase tracking-wider text-flame-foreground transition-transform hover:scale-105">
-            <TrophyIcon className="h-4 w-4" /> Go to Legends →
+          <Link to="/training" className="inline-flex items-center gap-2 rounded-full bg-flame px-6 py-3 text-sm font-bold uppercase tracking-wider text-flame-foreground transition-transform hover:scale-105">
+            <TrophyIcon className="h-4 w-4" /> Go to Training →
           </Link>
         </div>
       </BentoCard>
