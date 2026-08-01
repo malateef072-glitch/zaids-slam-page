@@ -10,7 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ReviewsRouteImport } from './routes/reviews'
-import { Route as LegendsRouteImport } from './routes/legends'
 import { Route as FitnessRouteImport } from './routes/fitness'
 import { Route as CoachingRouteImport } from './routes/coaching'
 import { Route as AuthRouteImport } from './routes/auth'
@@ -23,11 +22,6 @@ import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/
 const ReviewsRoute = ReviewsRouteImport.update({
   id: '/reviews',
   path: '/reviews',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LegendsRoute = LegendsRouteImport.update({
-  id: '/legends',
-  path: '/legends',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FitnessRoute = FitnessRouteImport.update({
@@ -75,7 +69,6 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/coaching': typeof CoachingRoute
   '/fitness': typeof FitnessRoute
-  '/legends': typeof LegendsRoute
   '/reviews': typeof ReviewsRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/training/$slug': typeof TrainingSlugRoute
@@ -86,7 +79,6 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/coaching': typeof CoachingRoute
   '/fitness': typeof FitnessRoute
-  '/legends': typeof LegendsRoute
   '/reviews': typeof ReviewsRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/training/$slug': typeof TrainingSlugRoute
@@ -99,7 +91,6 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/coaching': typeof CoachingRoute
   '/fitness': typeof FitnessRoute
-  '/legends': typeof LegendsRoute
   '/reviews': typeof ReviewsRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/training/$slug': typeof TrainingSlugRoute
@@ -112,7 +103,6 @@ export interface FileRouteTypes {
     | '/auth'
     | '/coaching'
     | '/fitness'
-    | '/legends'
     | '/reviews'
     | '/admin'
     | '/training/$slug'
@@ -123,7 +113,6 @@ export interface FileRouteTypes {
     | '/auth'
     | '/coaching'
     | '/fitness'
-    | '/legends'
     | '/reviews'
     | '/admin'
     | '/training/$slug'
@@ -135,7 +124,6 @@ export interface FileRouteTypes {
     | '/auth'
     | '/coaching'
     | '/fitness'
-    | '/legends'
     | '/reviews'
     | '/_authenticated/admin'
     | '/training/$slug'
@@ -148,7 +136,6 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   CoachingRoute: typeof CoachingRoute
   FitnessRoute: typeof FitnessRoute
-  LegendsRoute: typeof LegendsRoute
   ReviewsRoute: typeof ReviewsRoute
   TrainingSlugRoute: typeof TrainingSlugRoute
   TrainingIndexRoute: typeof TrainingIndexRoute
@@ -161,13 +148,6 @@ declare module '@tanstack/react-router' {
       path: '/reviews'
       fullPath: '/reviews'
       preLoaderRoute: typeof ReviewsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/legends': {
-      id: '/legends'
-      path: '/legends'
-      fullPath: '/legends'
-      preLoaderRoute: typeof LegendsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/fitness': {
@@ -246,7 +226,6 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   CoachingRoute: CoachingRoute,
   FitnessRoute: FitnessRoute,
-  LegendsRoute: LegendsRoute,
   ReviewsRoute: ReviewsRoute,
   TrainingSlugRoute: TrainingSlugRoute,
   TrainingIndexRoute: TrainingIndexRoute,
@@ -254,3 +233,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
