@@ -41,7 +41,7 @@ export function ChatWidget() {
     if (open) textareaRef.current?.focus();
   }, [open, status]);
 
-  const submit = (e: React.FormEvent) => {
+  const submit = (_m: unknown, e: React.FormEvent) => {
     e.preventDefault();
     const text = input.trim();
     if (!text || busy) return;
