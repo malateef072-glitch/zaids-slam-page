@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { AuthProvider, useAuth } from "@/hooks/use-auth";
+import { ChatWidget } from "@/components/chat-widget";
 
 function NotFoundComponent() {
   return (
@@ -132,7 +133,7 @@ function SiteNav() {
         </Link>
         <div className="flex flex-wrap items-center gap-2">
           <Link to="/" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeOptions={{ exact: true }} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Rules</Link>
-          <Link to="/legends" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Legends</Link>
+          
           <Link to="/coaching" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Coaching</Link>
           <Link to="/training" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Training</Link>
           <Link to="/fitness" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Fitness</Link>
@@ -167,11 +168,13 @@ function RootComponent() {
         <SiteNav />
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
+        <ChatWidget />
         <footer className="mt-8 border-t border-flame/10 bg-onyx/60 py-6 text-center">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/60">
-            Hoops Handbook · Rules · Legends · Respect the game
+            Hoops Handbook · Rules · Coaching · Respect the game
           </p>
         </footer>
+
       </AuthProvider>
     </QueryClientProvider>
   );

@@ -10,7 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ReviewsRouteImport } from './routes/reviews'
-import { Route as LegendsRouteImport } from './routes/legends'
 import { Route as FitnessRouteImport } from './routes/fitness'
 import { Route as CoachingRouteImport } from './routes/coaching'
 import { Route as AuthRouteImport } from './routes/auth'
@@ -18,16 +17,12 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TrainingIndexRouteImport } from './routes/training.index'
 import { Route as TrainingSlugRouteImport } from './routes/training.$slug'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 
 const ReviewsRoute = ReviewsRouteImport.update({
   id: '/reviews',
   path: '/reviews',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LegendsRoute = LegendsRouteImport.update({
-  id: '/legends',
-  path: '/legends',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FitnessRoute = FitnessRouteImport.update({
@@ -64,6 +59,11 @@ const TrainingSlugRoute = TrainingSlugRouteImport.update({
   path: '/training/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
   id: '/admin',
   path: '/admin',
@@ -75,9 +75,9 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/coaching': typeof CoachingRoute
   '/fitness': typeof FitnessRoute
-  '/legends': typeof LegendsRoute
   '/reviews': typeof ReviewsRoute
   '/admin': typeof AuthenticatedAdminRoute
+  '/api/chat': typeof ApiChatRoute
   '/training/$slug': typeof TrainingSlugRoute
   '/training/': typeof TrainingIndexRoute
 }
@@ -86,9 +86,9 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/coaching': typeof CoachingRoute
   '/fitness': typeof FitnessRoute
-  '/legends': typeof LegendsRoute
   '/reviews': typeof ReviewsRoute
   '/admin': typeof AuthenticatedAdminRoute
+  '/api/chat': typeof ApiChatRoute
   '/training/$slug': typeof TrainingSlugRoute
   '/training': typeof TrainingIndexRoute
 }
@@ -99,9 +99,9 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/coaching': typeof CoachingRoute
   '/fitness': typeof FitnessRoute
-  '/legends': typeof LegendsRoute
   '/reviews': typeof ReviewsRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
+  '/api/chat': typeof ApiChatRoute
   '/training/$slug': typeof TrainingSlugRoute
   '/training/': typeof TrainingIndexRoute
 }
@@ -112,9 +112,9 @@ export interface FileRouteTypes {
     | '/auth'
     | '/coaching'
     | '/fitness'
-    | '/legends'
     | '/reviews'
     | '/admin'
+    | '/api/chat'
     | '/training/$slug'
     | '/training/'
   fileRoutesByTo: FileRoutesByTo
@@ -123,9 +123,9 @@ export interface FileRouteTypes {
     | '/auth'
     | '/coaching'
     | '/fitness'
-    | '/legends'
     | '/reviews'
     | '/admin'
+    | '/api/chat'
     | '/training/$slug'
     | '/training'
   id:
@@ -135,9 +135,9 @@ export interface FileRouteTypes {
     | '/auth'
     | '/coaching'
     | '/fitness'
-    | '/legends'
     | '/reviews'
     | '/_authenticated/admin'
+    | '/api/chat'
     | '/training/$slug'
     | '/training/'
   fileRoutesById: FileRoutesById
@@ -148,8 +148,8 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   CoachingRoute: typeof CoachingRoute
   FitnessRoute: typeof FitnessRoute
-  LegendsRoute: typeof LegendsRoute
   ReviewsRoute: typeof ReviewsRoute
+  ApiChatRoute: typeof ApiChatRoute
   TrainingSlugRoute: typeof TrainingSlugRoute
   TrainingIndexRoute: typeof TrainingIndexRoute
 }
@@ -161,13 +161,6 @@ declare module '@tanstack/react-router' {
       path: '/reviews'
       fullPath: '/reviews'
       preLoaderRoute: typeof ReviewsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/legends': {
-      id: '/legends'
-      path: '/legends'
-      fullPath: '/legends'
-      preLoaderRoute: typeof LegendsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/fitness': {
@@ -219,6 +212,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TrainingSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_authenticated/admin': {
       id: '/_authenticated/admin'
       path: '/admin'
@@ -246,8 +246,8 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   CoachingRoute: CoachingRoute,
   FitnessRoute: FitnessRoute,
-  LegendsRoute: LegendsRoute,
   ReviewsRoute: ReviewsRoute,
+  ApiChatRoute: ApiChatRoute,
   TrainingSlugRoute: TrainingSlugRoute,
   TrainingIndexRoute: TrainingIndexRoute,
 }
