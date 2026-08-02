@@ -59,9 +59,9 @@ export function ChatWidget() {
                 <BallIcon className="h-5 w-5" />
               </span>
               <div>
-                <p className="font-display text-lg leading-none tracking-wider text-foreground">Ask Coach</p>
+                <p className="font-display text-lg leading-none tracking-wider text-foreground">Swish Assistant</p>
                 <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-foreground/50">
-                  Rules · Drills · Anything
+                  Product · Drills · Getting started
                 </p>
               </div>
             </div>
@@ -78,7 +78,8 @@ export function ChatWidget() {
             <ConversationContent className="gap-3">
               {messages.length === 0 && (
                 <div className="rounded-xl border border-flame/15 bg-flame/5 p-4 text-sm text-foreground/70">
-                  Hey! Ask me anything — basketball rules, drill ideas, class schedules, or fitness tips.
+                  Hey! How can I help you? Ask me about Swish, our drills and coaching classes, or how
+                  to get started.
                 </div>
               )}
               {messages.map((message) => (

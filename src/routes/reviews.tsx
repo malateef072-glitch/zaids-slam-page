@@ -4,9 +4,9 @@ import { useAuth, can } from "@/hooks/use-auth";
 export const Route = createFileRoute("/reviews")({
   head: () => ({
     meta: [
-      { title: "Reviews — Hoops Handbook Coaching" },
-      { name: "description", content: "Parents, players, and coaches share their experience training with the Hoops Handbook program." },
-      { property: "og:title", content: "Reviews — Hoops Handbook Coaching" },
+      { title: "Reviews — Swish Coaching" },
+      { name: "description", content: "Parents, players, and coaches share their experience training with the Swish program." },
+      { property: "og:title", content: "Reviews — Swish Coaching" },
       { property: "og:description", content: "Real stories from players and parents in our weekly basketball classes." },
     ],
   }),

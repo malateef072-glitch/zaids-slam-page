@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { AuthProvider, useAuth } from "@/hooks/use-auth";
 import { ChatWidget } from "@/components/chat-widget";
+import swishLogo from "@/assets/swish-logo.png";
 
 function NotFoundComponent() {
   return (
@@ -79,14 +80,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Hoops Handbook — Basketball Rules & How to Play" },
-      { name: "description", content: "Learn the core rules of basketball and how to play the game — a dark-orange, high-energy handbook." },
-      { property: "og:title", content: "Hoops Handbook — Basketball Rules & How to Play" },
-      { property: "og:description", content: "Learn the core rules of basketball and how to play the game — a dark-orange, high-energy handbook." },
+      { title: "Swish — Practice Hard. Get Stronger. Play Better." },
+      { name: "description", content: "Swish turns basketball practice into a plan: guided drills, weekly coaching classes, fitness programs, and progress tracking in one place." },
+      { property: "og:title", content: "Swish — Practice Hard. Get Stronger. Play Better." },
+      { property: "og:description", content: "Guided drills, weekly coaching classes, fitness programs, and progress tracking in one place." },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Swish" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Hoops Handbook — Basketball Rules & How to Play" },
-      { name: "twitter:description", content: "Learn the core rules of basketball and how to play the game — a dark-orange, high-energy handbook." },
+      { name: "twitter:title", content: "Swish — Practice Hard. Get Stronger. Play Better." },
+      { name: "twitter:description", content: "Guided drills, weekly coaching classes, fitness programs, and progress tracking in one place." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/66955492-e833-41ee-8a5f-737fbc0eb200/id-preview-a3b81685--7f05f418-82d1-46e5-8f3d-b22180132977.lovable.app-1783507783563.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/66955492-e833-41ee-8a5f-737fbc0eb200/id-preview-a3b81685--7f05f418-82d1-46e5-8f3d-b22180132977.lovable.app-1783507783563.png" },
     ],
@@ -95,7 +97,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
   shellComponent: RootShell,
@@ -125,14 +127,12 @@ function SiteNav() {
   return (
     <nav className="sticky top-0 z-50 border-b border-flame/15 bg-onyx/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-2 text-foreground">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-flame text-flame-foreground font-display text-lg">
-            H
-          </span>
-          <span className="font-display text-2xl tracking-wider">Hoops Handbook</span>
+        <Link to="/" className="flex items-center gap-2.5 text-foreground">
+          <img src={swishLogo} alt="Swish basketball training logo" width={36} height={36} className="h-9 w-9 shrink-0 object-contain" />
+          <span className="font-display text-2xl tracking-[0.18em]">SWISH</span>
         </Link>
         <div className="flex flex-wrap items-center gap-2">
-          <Link to="/" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeOptions={{ exact: true }} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Rules</Link>
+          <Link to="/" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeOptions={{ exact: true }} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Home</Link>
           
           <Link to="/coaching" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Coaching</Link>
           <Link to="/training" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Training</Link>
@@ -171,7 +171,7 @@ function RootComponent() {
         <ChatWidget />
         <footer className="mt-8 border-t border-flame/10 bg-onyx/60 py-6 text-center">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/60">
-            Hoops Handbook · Rules · Coaching · Respect the game
+            © 2026 Swish · Practice hard, get stronger, become a better basketball player every day.
           </p>
         </footer>
 
