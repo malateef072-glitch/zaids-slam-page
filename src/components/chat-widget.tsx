@@ -78,7 +78,8 @@ export function ChatWidget() {
             <ConversationContent className="gap-3">
               {messages.length === 0 && (
                 <div className="rounded-xl border border-flame/15 bg-flame/5 p-4 text-sm text-foreground/70">
-                  Hey! Ask me anything — basketball rules, drill ideas, class schedules, or fitness tips.
+                  Hey! How can I help you? Ask me about Swish, our drills and coaching classes, or how
+                  to get started.
                 </div>
               )}
               {messages.map((message) => (
