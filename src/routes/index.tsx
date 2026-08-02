@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [{ rel: "canonical", href: "https://zaids-slam-page.lovable.app/" }],
   }),
-  component: LandingPage;
+  component: LandingPage,
 });
 
 function Icon({ path, className }: { path: string; className?: string }) {
