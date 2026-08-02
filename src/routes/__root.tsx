@@ -132,7 +132,7 @@ function SiteNav() {
           <span className="font-display text-2xl tracking-[0.18em]">SWISH</span>
         </Link>
         <div className="flex flex-wrap items-center gap-2">
-          <Link to="/" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeOptions={{ exact: true }} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Rules</Link>
+          <Link to="/" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeOptions={{ exact: true }} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Home</Link>
           
           <Link to="/coaching" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Coaching</Link>
           <Link to="/training" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Training</Link>
@@ -171,7 +171,7 @@ function RootComponent() {
         <ChatWidget />
         <footer className="mt-8 border-t border-flame/10 bg-onyx/60 py-6 text-center">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/60">
-            Swish · Rules · Coaching · Respect the game
+            © 2026 Swish · Practice hard, get stronger, become a better basketball player every day.
           </p>
         </footer>
 
