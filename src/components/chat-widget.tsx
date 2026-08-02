@@ -59,9 +59,9 @@ export function ChatWidget() {
                 <BallIcon className="h-5 w-5" />
               </span>
               <div>
-                <p className="font-display text-lg leading-none tracking-wider text-foreground">Ask Coach</p>
+                <p className="font-display text-lg leading-none tracking-wider text-foreground">Swish Assistant</p>
                 <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-foreground/50">
-                  Rules · Drills · Anything
+                  Product · Drills · Getting started
                 </p>
               </div>
             </div>
