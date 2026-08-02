@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { AuthProvider, useAuth } from "@/hooks/use-auth";
 import { ChatWidget } from "@/components/chat-widget";
+import swishLogo from "@/assets/swish-logo.png";
 
 function NotFoundComponent() {
   return (
@@ -126,11 +127,9 @@ function SiteNav() {
   return (
     <nav className="sticky top-0 z-50 border-b border-flame/15 bg-onyx/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-2 text-foreground">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-flame text-flame-foreground font-display text-lg">
-            H
-          </span>
-          <span className="font-display text-2xl tracking-wider">Swish</span>
+        <Link to="/" className="flex items-center gap-2.5 text-foreground">
+          <img src={swishLogo} alt="Swish basketball training logo" width={36} height={36} className="h-9 w-9 shrink-0 object-contain" />
+          <span className="font-display text-2xl tracking-[0.18em]">SWISH</span>
         </Link>
         <div className="flex flex-wrap items-center gap-2">
           <Link to="/" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeOptions={{ exact: true }} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Rules</Link>
