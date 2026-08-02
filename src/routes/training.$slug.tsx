@@ -15,7 +15,7 @@ export const Route = createFileRoute("/training/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Drill unavailable — Hoops Handbook" }, { name: "robots", content: "noindex" }],
+        meta: [{ title: "Drill unavailable — Swish" }, { name: "robots", content: "noindex" }],
       };
     }
     const title = `${loaderData.title} — Basketball Drill Tutorial`;

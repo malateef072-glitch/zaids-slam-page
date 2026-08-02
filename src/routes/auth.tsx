@@ -6,9 +6,9 @@ import { lovable } from "@/integrations/lovable";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Sign in — Hoops Handbook" },
-      { name: "description", content: "Sign in to Hoops Handbook to access member and owner features." },
-      { property: "og:title", content: "Sign in — Hoops Handbook" },
+      { title: "Sign in — Swish" },
+      { name: "description", content: "Sign in to Swish to access member and owner features." },
+      { property: "og:title", content: "Sign in — Swish" },
       { property: "og:description", content: "Sign in to access role-based features." },
     ],
   }),
@@ -69,7 +69,7 @@ function AuthPage() {
           {mode === "signin" ? "Sign in" : "Create account"}
         </h1>
         <p className="mt-1 text-sm text-foreground/70">
-          {mode === "signin" ? "Welcome back to the court." : "Join the Hoops Handbook community."}
+          {mode === "signin" ? "Welcome back to the court." : "Join the Swish community."}
         </p>
 
         <button

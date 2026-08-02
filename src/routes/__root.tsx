@@ -79,13 +79,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Hoops Handbook — Basketball Rules & How to Play" },
+      { title: "Swish — Basketball Rules & How to Play" },
       { name: "description", content: "Learn the core rules of basketball and how to play the game — a dark-orange, high-energy handbook." },
-      { property: "og:title", content: "Hoops Handbook — Basketball Rules & How to Play" },
+      { property: "og:title", content: "Swish — Basketball Rules & How to Play" },
       { property: "og:description", content: "Learn the core rules of basketball and how to play the game — a dark-orange, high-energy handbook." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Hoops Handbook — Basketball Rules & How to Play" },
+      { name: "twitter:title", content: "Swish — Basketball Rules & How to Play" },
       { name: "twitter:description", content: "Learn the core rules of basketball and how to play the game — a dark-orange, high-energy handbook." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/66955492-e833-41ee-8a5f-737fbc0eb200/id-preview-a3b81685--7f05f418-82d1-46e5-8f3d-b22180132977.lovable.app-1783507783563.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/66955492-e833-41ee-8a5f-737fbc0eb200/id-preview-a3b81685--7f05f418-82d1-46e5-8f3d-b22180132977.lovable.app-1783507783563.png" },
@@ -129,7 +129,7 @@ function SiteNav() {
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-flame text-flame-foreground font-display text-lg">
             H
           </span>
-          <span className="font-display text-2xl tracking-wider">Hoops Handbook</span>
+          <span className="font-display text-2xl tracking-wider">Swish</span>
         </Link>
         <div className="flex flex-wrap items-center gap-2">
           <Link to="/" className={`${linkBase} text-foreground/70 hover:bg-flame/10 hover:text-flame`} activeOptions={{ exact: true }} activeProps={{ className: `${linkBase} bg-flame text-flame-foreground` }}>Rules</Link>
@@ -171,7 +171,7 @@ function RootComponent() {
         <ChatWidget />
         <footer className="mt-8 border-t border-flame/10 bg-onyx/60 py-6 text-center">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/60">
-            Hoops Handbook · Rules · Coaching · Respect the game
+            Swish · Rules · Coaching · Respect the game
           </p>
         </footer>
 

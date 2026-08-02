@@ -4,9 +4,9 @@ import coachingGym from "@/assets/coaching-gym.jpg";
 export const Route = createFileRoute("/coaching")({
   head: () => ({
     meta: [
-      { title: "Coaching & Weekly Classes — Hoops Handbook" },
+      { title: "Coaching & Weekly Classes — Swish" },
       { name: "description", content: "Elite basketball coaching academies, pros who trained with our coaches, weekly class schedules, and enrollment plans." },
-      { property: "og:title", content: "Coaching & Weekly Classes — Hoops Handbook" },
+      { property: "og:title", content: "Coaching & Weekly Classes — Swish" },
       { property: "og:description", content: "Train where the pros trained. Weekly schedules, plans, and secure payments." },
     ],
   }),

@@ -6,9 +6,9 @@ import { useAuth, type AppRole } from "@/hooks/use-auth";
 export const Route = createFileRoute("/_authenticated/admin")({
   head: () => ({
     meta: [
-      { title: "Admin — Hoops Handbook" },
+      { title: "Admin — Swish" },
       { name: "description", content: "Owner control panel: manage user roles." },
-      { property: "og:title", content: "Admin — Hoops Handbook" },
+      { property: "og:title", content: "Admin — Swish" },
       { property: "og:description", content: "Manage roles and access." },
     ],
   }),

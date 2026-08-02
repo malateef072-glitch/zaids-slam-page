@@ -4,9 +4,9 @@ import heroCourt from "@/assets/hero-court.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Hoops Handbook — Basketball Rules & How to Play" },
+      { title: "Swish — Basketball Rules & How to Play" },
       { name: "description", content: "Learn the core rules of basketball and how to play the game — a dark-orange, high-energy handbook." },
-      { property: "og:title", content: "Hoops Handbook — Basketball Rules & How to Play" },
+      { property: "og:title", content: "Swish — Basketball Rules & How to Play" },
       { property: "og:description", content: "Learn the core rules of basketball and how to play the game — a dark-orange, high-energy handbook." },
     ],
   }),
